@@ -1,0 +1,28 @@
+@import './variables';
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: normal;
+}
+
+.mw-100 {
+  max-width: 100%;
+}
+
+.btn-outline-info {
+  color: $primary-color;
+  border-color: $primary-color;
+  &:hover, &:active {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.btn-info, .btn-info:hover, .btn-info:active {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.txt-highlight {
+  color: $primary-color;
+}
