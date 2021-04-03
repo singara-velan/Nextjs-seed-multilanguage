@@ -1,17 +1,21 @@
 import styles from './NavBar.module.scss'
 
 import useLocale from '../../hooks/useLocale';
+import { useRouter } from 'next/router';
 
-const NavBar = ({lang, setLang}) => {
+const NavBar = () => {
+
+  const router = useRouter();
+  const locale = router.locale;
 
   const handleChange = (event) => {
-    const selectedLang = event.target.value;
-    if(selectedLang !== lang) {
-      setLang(event.target.value);
+    const selectedLocale = event.target.value;
+    if(selectedLocale !== locale) {
+      router.push('/home','/home', { locale: selectedLocale });
     }
   };
 
-  const { content } = useLocale(lang);
+  const { content } = useLocale(locale);
 
   return (
     <header>
@@ -59,10 +63,10 @@ const NavBar = ({lang, setLang}) => {
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item dropdown d-inline-flex mr-2">
-              <select value={lang} className={styles.langSelect} onChange={handleChange}>
-                <option value="english">English</option>
-                <option value="hindi">Hindi</option>
-                <option value="kannada">Kannada</option>
+              <select value={locale} className={styles.langSelect} onChange={handleChange}>
+                <option value="en-IN">English</option>
+                <option value="hi-IN">Hindi</option>
+                <option value="kn-IN">Kannada</option>
               </select>
             </li>
             <li className="nav-item">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Banner.module.scss";
 
 const Banner = ({content}) => {
-  console.log(content);
+
   return (
     <section className={`${styles.bannerContainer} p-5`}>
       <div className="container">
